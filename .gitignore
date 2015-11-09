@@ -2,4 +2,5 @@
 *.jpg
 *.jpeg
 !Oxcart 690.jpg
-!lunch2.jpg
+!*oxcart.jpg
+!lunch2.jpeg
