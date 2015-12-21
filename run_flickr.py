@@ -5,17 +5,17 @@ import models as mdl
 su.SetupCaffe.gpu_on() #Call this if you have an NVIDIA GPU and it is set up with caffe.
 
 #Set up the caffe model and initialize the classifier.
-dir = '../../caffe-master/'
+dir = '../CommonCaffe/TrainedModels/'
 net = mdl.NetModels.setup_flickr_model(dir)
-labelsPath = dir + 'examples/finetune_flickr_style/style_names.txt'
+labelsPath = 'models/finetune_flickr_style/style_names.txt'
 cf = classifier.Classifier(net, labelsPath)
 
 #Load an input image and classify it.
-imPath = 'input/lunch2.jpeg'
+imPath = 'input/Class 0.jpg'
 cf.classify_image(imPath)
 cf.save_results()
 
-#load as many images as you want.
-imPath = 'input/tandem.jpeg'
-cf.classify_image(imPath)
-cf.save_results()
+for i in range(1, 20):
+    imPath = 'input/Class ' + str(i) + '.jpg'
+    cf.classify_image(imPath)
+    cf.save_results()
